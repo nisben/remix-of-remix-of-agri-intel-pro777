@@ -234,20 +234,56 @@ const PredictiveAI = () => {
 
             {showComparison && (
               <div className="space-y-6 animate-in fade-in slide-in-from-top-4 duration-500 pt-4 border-t border-border/50">
-                <div className="max-w-xs">
-                  <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider block mb-1.5">Select Market B</label>
-                  <div className="relative">
+                <div className="flex flex-wrap gap-3">
+                  <div className="relative flex-1 min-w-[140px]">
+                    <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider block mb-1.5">State</label>
+                    <select
+                      value={stateB}
+                      onChange={(e) => { setStateB(e.target.value); setDistrictB(""); setSelectedMarketB(""); setCommodityB(""); }}
+                      className="w-full bg-muted border border-border rounded-lg px-3 py-2.5 text-sm text-foreground appearance-none focus:outline-none focus:ring-1 focus:ring-primary"
+                    >
+                      <option value="">Select State</option>
+                      {states.map(s => <option key={s} value={s}>{s}</option>)}
+                    </select>
+                    <ChevronDown className="absolute right-3 bottom-2.5 w-4 h-4 text-muted-foreground pointer-events-none" />
+                  </div>
+                  <div className="relative flex-1 min-w-[140px]">
+                    <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider block mb-1.5">District</label>
+                    <select
+                      value={districtB}
+                      onChange={(e) => { setDistrictB(e.target.value); setSelectedMarketB(""); }}
+                      disabled={!stateB}
+                      className="w-full bg-muted border border-border rounded-lg px-3 py-2.5 text-sm text-foreground appearance-none focus:outline-none focus:ring-1 focus:ring-primary disabled:opacity-50"
+                    >
+                      <option value="">Select District</option>
+                      {districtsB.map(d => <option key={d} value={d}>{d}</option>)}
+                    </select>
+                    <ChevronDown className="absolute right-3 bottom-2.5 w-4 h-4 text-muted-foreground pointer-events-none" />
+                  </div>
+                  <div className="relative flex-1 min-w-[140px]">
+                    <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider block mb-1.5">Commodity</label>
+                    <select
+                      value={commodityB}
+                      onChange={(e) => setCommodityB(e.target.value)}
+                      className="w-full bg-muted border border-border rounded-lg px-3 py-2.5 text-sm text-foreground appearance-none focus:outline-none focus:ring-1 focus:ring-primary"
+                    >
+                      <option value="">Select Commodity</option>
+                      {commodities.map(c => <option key={c} value={c}>{c}</option>)}
+                    </select>
+                    <ChevronDown className="absolute right-3 bottom-2.5 w-4 h-4 text-muted-foreground pointer-events-none" />
+                  </div>
+                  <div className="relative flex-1 min-w-[140px]">
+                    <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider block mb-1.5">Market</label>
                     <select
                       value={selectedMarketB}
                       onChange={(e) => setSelectedMarketB(e.target.value)}
-                      className="w-full bg-muted border border-border rounded-lg px-3 py-2.5 text-sm text-foreground appearance-none focus:outline-none focus:ring-1 focus:ring-primary"
+                      disabled={!districtB}
+                      className="w-full bg-muted border border-border rounded-lg px-3 py-2.5 text-sm text-foreground appearance-none focus:outline-none focus:ring-1 focus:ring-primary disabled:opacity-50"
                     >
-                      <option value="">Select Market B</option>
-                      {mandiPrices.filter(m => m.mandi !== selectedMarketA).map((m) => (
-                        <option key={m.mandi} value={m.mandi}>{m.mandi}</option>
-                      ))}
+                      <option value="">Select Market</option>
+                      {marketsB.map(m => <option key={m} value={m}>{m}</option>)}
                     </select>
-                    <ChevronDown className="absolute right-3 top-3 w-4 h-4 text-muted-foreground pointer-events-none" />
+                    <ChevronDown className="absolute right-3 bottom-2.5 w-4 h-4 text-muted-foreground pointer-events-none" />
                   </div>
                 </div>
 
