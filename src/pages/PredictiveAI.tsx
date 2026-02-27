@@ -332,7 +332,7 @@ const PredictiveAI = () => {
         {actions.map((a) => (
           <div key={a.range} className="bg-card rounded-xl border border-border p-5 shadow-card hover:border-primary/30 transition-colors">
             <div className="flex justify-between items-start mb-2">
-              <p className="text-xs text-muted-foreground">{a.range} Forecast</p>
+              <p className="text-xs text-muted-foreground">{a.range} Price Prediction</p>
               <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${a.color}`}>{a.action}</span>
             </div>
             <div className="flex items-baseline gap-2">
