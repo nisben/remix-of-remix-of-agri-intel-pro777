@@ -51,8 +51,8 @@ const average = (values: number[]) =>
 
 const actions = [
   { range: "5 Days", action: "BUY", confidence: 87, price: "₹2,520", change: "+₹70", trend: "up", color: "text-profit bg-profit/10" },
-  { range: "15 Days", action: "HOLD", confidence: 74, price: "₹2,610", change: "+₹160", trend: "up", color: "text-warning bg-warning/10" },
-  { range: "30 Days", action: "SELL", confidence: 68, price: "₹2,740", change: "+₹290", trend: "up", color: "text-info bg-info/10" },
+  { range: "7 Days", action: "HOLD", confidence: 81, price: "₹2,550", change: "+₹100", trend: "up", color: "text-warning bg-warning/10" },
+  { range: "10 Days", action: "HOLD", confidence: 74, price: "₹2,580", change: "+₹130", trend: "up", color: "text-info bg-info/10" },
 ];
 
 const PredictiveAI = () => {
@@ -388,12 +388,12 @@ const PredictiveAI = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-muted/30 p-4 rounded-xl border border-border/50">
-                <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1">Exp. Price Change</p>
-                <p className="text-xl font-display font-bold text-profit">+₹290 <span className="text-xs font-normal">/qtl</span></p>
+              <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1">Exp. Price Change</p>
+                <p className="text-xl font-display font-bold text-profit">+₹130 <span className="text-xs font-normal">/qtl</span></p>
               </div>
               <div className="bg-muted/30 p-4 rounded-xl border border-border/50">
                 <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1">Exp. Total Gain</p>
-                <p className="text-xl font-display font-bold text-profit">₹{calculateProfit(290)}</p>
+                <p className="text-xl font-display font-bold text-profit">₹{calculateProfit(130)}</p>
               </div>
             </div>
           </div>
@@ -408,7 +408,7 @@ const PredictiveAI = () => {
         <div className="lg:col-span-2 bg-card rounded-xl border border-border p-5 shadow-card">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-display font-semibold text-foreground">
-              30-Day Price Forecast — {selectedCommodity}
+              10-Day Price Forecast — {selectedCommodity}
             </h3>
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
@@ -471,24 +471,24 @@ const PredictiveAI = () => {
                   <p className="text-xs text-muted-foreground">Best Case</p>
                   <TrendingUp className="w-3 h-3 text-profit" />
                 </div>
-                <p className="text-xl font-display font-bold text-profit">₹{calculateProfit(440)}</p>
-                <p className="text-[10px] text-muted-foreground mt-0.5">Sell in 30 days @ ₹2,890</p>
+                <p className="text-xl font-display font-bold text-profit">₹{calculateProfit(195)}</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5">Sell in 10 days @ ₹2,645</p>
               </div>
               <div className="bg-warning/5 border border-warning/20 rounded-lg p-3">
                 <div className="flex items-center justify-between mb-1">
                   <p className="text-xs text-muted-foreground">Expected</p>
                   <ShieldCheck className="w-3 h-3 text-warning" />
                 </div>
-                <p className="text-xl font-display font-bold text-warning">₹{calculateProfit(290)}</p>
-                <p className="text-[10px] text-muted-foreground mt-0.5">Sell in 30 days @ ₹2,740</p>
+                <p className="text-xl font-display font-bold text-warning">₹{calculateProfit(130)}</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5">Sell in 10 days @ ₹2,580</p>
               </div>
               <div className="bg-loss/5 border border-loss/20 rounded-lg p-3">
                 <div className="flex items-center justify-between mb-1">
                   <p className="text-xs text-muted-foreground">Worst Case</p>
                   <AlertTriangle className="w-3 h-3 text-loss" />
                 </div>
-                <p className="text-xl font-display font-bold text-loss">₹{calculateProfit(140)}</p>
-                <p className="text-[10px] text-muted-foreground mt-0.5">Sell in 30 days @ ₹2,590</p>
+                <p className="text-xl font-display font-bold text-loss">₹{calculateProfit(65)}</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5">Sell in 10 days @ ₹2,515</p>
               </div>
             </div>
           </div>

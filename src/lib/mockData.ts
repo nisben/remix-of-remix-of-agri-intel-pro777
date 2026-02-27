@@ -28,12 +28,15 @@ export const priceHistory7d = [
 
 export const priceForecast = [
   { day: "Day 1", actual: 2450, predicted: 2460, low: 2420, high: 2500 },
-  { day: "Day 5", actual: null, predicted: 2520, low: 2450, high: 2590 },
-  { day: "Day 10", actual: null, predicted: 2580, low: 2480, high: 2680 },
-  { day: "Day 15", actual: null, predicted: 2610, low: 2500, high: 2720 },
-  { day: "Day 20", actual: null, predicted: 2650, low: 2520, high: 2780 },
-  { day: "Day 25", actual: null, predicted: 2700, low: 2560, high: 2840 },
-  { day: "Day 30", actual: null, predicted: 2740, low: 2590, high: 2890 },
+  { day: "Day 2", actual: 2465, predicted: 2470, low: 2430, high: 2510 },
+  { day: "Day 3", actual: 2480, predicted: 2485, low: 2445, high: 2525 },
+  { day: "Day 4", actual: null, predicted: 2500, low: 2455, high: 2545 },
+  { day: "Day 5", actual: null, predicted: 2520, low: 2470, high: 2570 },
+  { day: "Day 6", actual: null, predicted: 2535, low: 2480, high: 2590 },
+  { day: "Day 7", actual: null, predicted: 2550, low: 2490, high: 2610 },
+  { day: "Day 8", actual: null, predicted: 2565, low: 2500, high: 2630 },
+  { day: "Day 9", actual: null, predicted: 2575, low: 2510, high: 2640 },
+  { day: "Day 10", actual: null, predicted: 2580, low: 2515, high: 2645 },
 ];
 
 export const riskAlerts = [
