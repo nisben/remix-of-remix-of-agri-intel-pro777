@@ -6,7 +6,33 @@ import { Brain, TrendingUp, ShieldCheck, AlertTriangle, ChevronDown, ArrowUpRigh
 import { priceForecast, mandiPrices } from "@/lib/mockData";
 
 const states = ["Delhi", "Maharashtra", "Karnataka", "Tamil Nadu", "Punjab"];
-const districts = ["New Delhi", "Mumbai City", "Bangalore Urban", "Chennai City", "Ludhiana"];
+
+const districtsByState: Record<string, string[]> = {
+  "Delhi": ["New Delhi", "Central Delhi", "South Delhi"],
+  "Maharashtra": ["Mumbai City", "Nashik", "Pune"],
+  "Karnataka": ["Bangalore Urban", "Mysore", "Hubli"],
+  "Tamil Nadu": ["Chennai City", "Coimbatore", "Madurai"],
+  "Punjab": ["Ludhiana", "Amritsar", "Patiala"],
+};
+
+const marketsByDistrict: Record<string, string[]> = {
+  "New Delhi": ["Azadpur, Delhi"],
+  "Central Delhi": ["Azadpur, Delhi"],
+  "South Delhi": ["Azadpur, Delhi"],
+  "Mumbai City": ["Vashi, Mumbai"],
+  "Nashik": ["Lasalgaon, Nashik"],
+  "Pune": ["Gultekdi, Pune"],
+  "Bangalore Urban": ["Yeshwanthpur, Bangalore"],
+  "Mysore": ["Yeshwanthpur, Bangalore"],
+  "Hubli": ["Yeshwanthpur, Bangalore"],
+  "Chennai City": ["Koyambedu, Chennai"],
+  "Coimbatore": ["Koyambedu, Chennai"],
+  "Madurai": ["Koyambedu, Chennai"],
+  "Ludhiana": ["Azadpur, Delhi"],
+  "Amritsar": ["Azadpur, Delhi"],
+  "Patiala": ["Azadpur, Delhi"],
+};
+
 const commodities = ["Wheat", "Onion", "Tomato", "Rice", "Soybean"];
 
 type ArrivalLevel = "Low" | "Medium" | "High";
@@ -64,6 +90,14 @@ const PredictiveAI = () => {
   const [showComparison, setShowComparison] = useState(false);
   const [showPredictionTable, setShowPredictionTable] = useState(false);
   const [quantity, setQuantity] = useState(100);
+
+  // Filter B states
+  const [stateB, setStateB] = useState("");
+  const [districtB, setDistrictB] = useState("");
+  const [commodityB, setCommodityB] = useState("");
+
+  const districtsB = stateB ? districtsByState[stateB] || [] : [];
+  const marketsB = districtB ? (marketsByDistrict[districtB] || []).filter(m => m !== selectedMarketA) : [];
 
   const marketA = mandiPrices.find((m) => m.mandi === selectedMarketA);
   const marketB = mandiPrices.find((m) => m.mandi === selectedMarketB);
@@ -142,7 +176,7 @@ const PredictiveAI = () => {
               onChange={(e) => setSelectedDistrict(e.target.value)}
               className="w-full bg-muted/50 border border-border rounded-lg px-3 py-2 text-sm text-foreground appearance-none focus:outline-none focus:ring-1 focus:ring-primary"
             >
-              {districts.map(d => <option key={d} value={d}>{d}</option>)}
+              {(districtsByState[selectedState] || []).map(d => <option key={d} value={d}>{d}</option>)}
             </select>
             <ChevronDown className="absolute right-3 top-2.5 w-4 h-4 text-muted-foreground pointer-events-none" />
           </div>
